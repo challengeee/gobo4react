@@ -1,8 +1,13 @@
 import { useContext } from 'react'
 import { BoardDimensionsContext } from '../context/BoardDimensionsContext'
 import { BoardInfoContext } from '../context/BoardInfoContext'
+import { BoardStateContext } from '../context/BoardStateContext'
+import { WhiteStone } from './WhiteStone'
+import { BlackStone } from './BlackStone'
 
 type IntersectionProps = {
+  col: number
+  row: number
   isTopMost?: boolean
   isBottomMost?: boolean
   isLeftMost?: boolean
@@ -10,6 +15,8 @@ type IntersectionProps = {
 }
 
 export const Intersection = ({
+  col,
+  row,
   isTopMost,
   isBottomMost,
   isLeftMost,
@@ -19,6 +26,7 @@ export const Intersection = ({
     BoardDimensionsContext,
   )
   const { boardSize } = useContext(BoardInfoContext)
+  const boardState = useContext(BoardStateContext)
   return (
     <div
       style={{
@@ -55,6 +63,8 @@ export const Intersection = ({
           stroke-width={`${lineThickness}px`}
           stroke-linecap="square"
         />
+        {boardState[col][row] === 'black' && <BlackStone />}
+        {boardState[col][row] === 'white' && <WhiteStone />}
       </svg>
     </div>
   )
