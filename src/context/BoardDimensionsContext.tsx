@@ -11,7 +11,7 @@ interface BoardDimensionsContextType {
 const calculateBoardDimensions = (
   boardWidth: number,
 ): BoardDimensionsContextType => {
-  // The values are based on Japanese board defined in https://en.wikipedia.org/wiki/Go_equipment#Board
+  // The values are based on Japanese board size defined in https://en.wikipedia.org/wiki/Go_equipment#Board
   return {
     boardWidth,
     boardHeight: (boardWidth * 1.5) / 1.4,
