@@ -23,6 +23,8 @@ export const Board = () => {
           return (
             <Intersection
               key={`${r},${c}`}
+              col={c}
+              row={r}
               isTopMost={r === 0}
               isBottomMost={r === boardSize - 1}
               isLeftMost={c === 0}
