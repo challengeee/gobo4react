@@ -1,37 +1,27 @@
-import { useContext } from 'react'
-import { BoardDimensionsContext } from '../context/BoardDimensionsContext'
-import { BoardInfoContext } from '../context/BoardInfoContext'
-import { BoardStateContext } from '../context/BoardStateContext'
-import { WhiteStone } from './WhiteStone'
-import { BlackStone } from './BlackStone'
-
 type IntersectionProps = {
-  col: number
-  row: number
   isTopMost?: boolean
   isBottomMost?: boolean
   isLeftMost?: boolean
   isRightMost?: boolean
+  width: number
+  height: number
+  lineThickness: number
 }
 
 export const Intersection = ({
-  col,
-  row,
   isTopMost,
   isBottomMost,
   isLeftMost,
   isRightMost,
+  width,
+  height,
+  lineThickness,
 }: IntersectionProps) => {
-  const { boardWidth, boardHeight, lineThickness } = useContext(
-    BoardDimensionsContext,
-  )
-  const { boardSize } = useContext(BoardInfoContext)
-  const boardState = useContext(BoardStateContext)
   return (
     <div
       style={{
-        width: boardWidth / boardSize,
-        height: boardHeight / boardSize,
+        width,
+        height,
         margin: 0,
         padding: 0,
         textAlign: 'center',
@@ -39,8 +29,8 @@ export const Intersection = ({
     >
       <svg
         style={{
-          width: boardWidth / boardSize,
-          height: boardHeight / boardSize,
+          width,
+          height,
         }}
       >
         {/* horizontal line */}
@@ -50,8 +40,8 @@ export const Intersection = ({
           x2={isRightMost ? '50%' : '100%'}
           y2="50%"
           stroke="black"
-          stroke-width={`${lineThickness}px`}
-          stroke-linecap="square"
+          strokeWidth={`${lineThickness}px`}
+          strokeLinecap="square"
         />
         {/* vertical line */}
         <line
@@ -60,11 +50,9 @@ export const Intersection = ({
           x2="50%"
           y2={isBottomMost ? '50%' : '100%'}
           stroke="black"
-          stroke-width={`${lineThickness}px`}
-          stroke-linecap="square"
+          strokeWidth={`${lineThickness}px`}
+          strokeLinecap="square"
         />
-        {boardState[col][row] === 'black' && <BlackStone />}
-        {boardState[col][row] === 'white' && <WhiteStone />}
       </svg>
     </div>
   )

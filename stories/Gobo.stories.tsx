@@ -17,6 +17,6 @@ export const AllBlack: Story = {
   args: {
     boardWidth: 500,
     boardSize: 19,
-    boardState: Array(19).fill(Array(19).fill('black')),
+    // boardState: Array(19).fill(Array(19).fill('black')),
   },
 }
