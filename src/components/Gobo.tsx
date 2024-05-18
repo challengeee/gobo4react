@@ -1,28 +1,16 @@
 import React from 'react'
 import { Board } from './Board'
-import { BoardDimensionsContextProvider } from '../context/BoardDimensionsContext'
-import { BoardInfoContextProvider } from '../context/BoardInfoContext'
-import {
-  BoardStateContextProvider,
-  BoardState,
-} from '../context/BoardStateContext'
+import { useBoardState } from '../hooks'
+import { useBoardDimensions } from '../hooks'
 
 export const Gobo = ({
   boardSize,
   boardWidth,
-  boardState,
 }: React.PropsWithChildren<{
   boardSize: number
   boardWidth: number
-  boardState: BoardState
 }>) => {
-  return (
-    <BoardInfoContextProvider boardSize={boardSize}>
-      <BoardDimensionsContextProvider boardWidth={boardWidth}>
-        <BoardStateContextProvider boardState={boardState}>
-          <Board />
-        </BoardStateContextProvider>
-      </BoardDimensionsContextProvider>
-    </BoardInfoContextProvider>
-  )
+  const boardDimensions = useBoardDimensions(boardWidth, boardSize)
+  const { addStone } = useBoardState(boardSize)
+  return <Board boardSize={boardSize} boardDimensions={boardDimensions} />
 }

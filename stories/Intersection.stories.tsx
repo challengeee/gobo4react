@@ -12,11 +12,12 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    col: 0,
-    row: 0,
     isTopMost: false,
     isBottomMost: false,
     isLeftMost: false,
     isRightMost: false,
+    width: 100,
+    height: 100,
+    lineThickness: 2,
   },
 }
