@@ -1,9 +1,9 @@
 import { RenderItem } from '../../hooks/useBoardState'
 
-export const WhiteStone: RenderItem = (boardDimensions) => {
+export const WhiteStone: RenderItem = ({stoneRadius}) => {
   return (
     <svg>
-      <circle cx="50%" cy="50%" r={boardDimensions?.stoneRadius} fill="white" />
+      <circle cx="50%" cy="50%" r={stoneRadius} fill="white" />
     </svg>
   )
 }
