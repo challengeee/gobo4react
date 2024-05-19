@@ -13,8 +13,14 @@ export interface BoardDimensions {
 const calculateBoardDimensions = (
   boardWidth: number,
   boardSize: number,
+  boardType: 'Chinese' | 'Japanese',
 ): BoardDimensions => {
-  const boardHeight = (boardWidth * 1.5) / 1.4
+  const boardHeight =
+    boardType === 'Japanese'
+      ? (boardWidth * 1.5) / 1.4
+      : boardType === 'Chinese'
+        ? boardWidth
+        : boardWidth
   const horizontalLineSpacing = boardWidth / boardSize
   const verticalLineSpacing = boardHeight / boardSize
   return {
@@ -31,10 +37,11 @@ const calculateBoardDimensions = (
 export const useBoardDimensions = (
   boardWidth: number,
   boardSize: number,
+  boardType: 'Chinese' | 'Japanese',
 ): BoardDimensions => {
   const boardDimensions = useMemo<BoardDimensions>(() => {
-    return calculateBoardDimensions(boardWidth, boardSize)
-  }, [boardWidth, boardSize])
+    return calculateBoardDimensions(boardWidth, boardSize, boardType)
+  }, [boardWidth, boardSize, boardType])
 
   return boardDimensions
 }

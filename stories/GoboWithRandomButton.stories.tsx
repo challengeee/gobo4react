@@ -17,5 +17,6 @@ export const Default: Story = {
   args: {
     boardWidth: 500,
     boardSize: 19,
+    boardType: 'Chinese',
   },
 }

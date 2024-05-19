@@ -5,18 +5,17 @@ import { BoardState } from '../hooks/useBoardState'
 interface GoboProps {
   boardSize: number
   boardWidth: number
-  // initialState?: BoardState
   boardState?: BoardState
+  boardType?: 'Chinese' | 'Japanese'
 }
 
-export const Gobo = ({ boardSize, boardWidth, boardState }: GoboProps) => {
-  const boardDimensions = useBoardDimensions(boardWidth, boardSize)
-  // const { boardState, setBoardState } = useBoardState(boardSize)
-  // initialState && setBoardState(initialState)
-
-  // useEffect(() => {
-  //   boardState && setBoardState(boardState)
-  // }, [boardState])
+export const Gobo = ({
+  boardSize,
+  boardWidth,
+  boardState,
+  boardType = 'Chinese',
+}: GoboProps) => {
+  const boardDimensions = useBoardDimensions(boardWidth, boardSize, boardType)
 
   return (
     <Board
