@@ -15,8 +15,12 @@ export const WikiBlackStone: RenderItem = (boardDimensions) => {
           <stop stop-color="#000" offset="1" />
         </radialGradient>
       </defs>
-      <rect fill="#DCB35C" width={boardDimensions.horizontalLineSpacing} height={boardDimensions.verticalLineSpacing} />
-      <circle fill="url(#rg)" r={boardDimensions.stoneRadius} cx="50%" cy="50%" />
+      <circle
+        fill="url(#rg)"
+        r={boardDimensions.stoneRadius}
+        cx="50%"
+        cy="50%"
+      />
     </svg>
   )
 }
