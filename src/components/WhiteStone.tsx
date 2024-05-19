@@ -1,11 +1,13 @@
-import { useContext } from 'react'
-import { BoardDimensionsContext } from '../context/BoardDimensionsContext'
+import { RenderItem } from '../hooks/useBoardState'
 
-export const WhiteStone = () => {
-  const { stoneDiameter } = useContext(BoardDimensionsContext)
+export const WhiteStone: RenderItem = (boardDimensions) => {
   return (
     <svg>
-      <circle cx="50%" cy="50%" r={stoneDiameter / 2} fill="white" />
+      <circle cx="50%" cy="50%" r={boardDimensions?.stoneRadius} fill="white" />
     </svg>
   )
+}
+
+export const Hoge: RenderItem = () => {
+  return <div></div>
 }
