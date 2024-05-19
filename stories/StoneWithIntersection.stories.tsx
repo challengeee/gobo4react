@@ -39,7 +39,7 @@ export const White: Story = {
   },
 }
 
-export const ShellStone: Story = {
+export const WikiBlack: Story = {
   args: {
     isTopMost: false,
     isBottomMost: false,
@@ -48,6 +48,19 @@ export const ShellStone: Story = {
     boardWidth: 2000,
     isStarPoint: false,
     stoneType: 'wikiBlack',
+    boardType: 'Chinese',
+  },
+}
+
+export const WikiWhite: Story = {
+  args: {
+    isTopMost: false,
+    isBottomMost: false,
+    isLeftMost: false,
+    isRightMost: false,
+    boardWidth: 2000,
+    isStarPoint: false,
+    stoneType: 'wikiWhite',
     boardType: 'Chinese',
   },
 }
