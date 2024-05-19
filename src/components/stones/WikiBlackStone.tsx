@@ -1,13 +1,13 @@
 import { RenderItem } from '../../hooks/useBoardState'
 
 // from https://en.m.wikipedia.org/wiki/File:Go_b1.svg
-export const WikiBlackStone: RenderItem = (boardDimensions) => {
+export const WikiBlackStone: RenderItem = ({horizontalLineSpacing, verticalLineSpacing, stoneRadius}) => {
   const id = "wiki-black-stone-gradient"
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width={boardDimensions.horizontalLineSpacing}
-      height={boardDimensions.verticalLineSpacing}
+      width={horizontalLineSpacing}
+      height={verticalLineSpacing}
     >
       <defs>
         <radialGradient r=".8" cx=".3" cy=".3" id={id}>
@@ -18,7 +18,7 @@ export const WikiBlackStone: RenderItem = (boardDimensions) => {
       </defs>
       <circle
         fill={`url(#${id})`}
-        r={boardDimensions.stoneRadius}
+        r={stoneRadius}
         cx="50%"
         cy="50%"
       />
