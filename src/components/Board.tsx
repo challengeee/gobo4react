@@ -1,6 +1,7 @@
 import React from 'react'
 import { Intersection } from './Intersection'
 import { BoardDimensions } from '../hooks/useBoardDimensions'
+import { isStarPoint } from '../utils'
 
 type BoardProps = {
   boardSize: number
@@ -35,6 +36,8 @@ export const Board = ({
               width={boardDimensions.horizontalLineSpacing}
               height={boardDimensions.verticalLineSpacing}
               lineThickness={boardDimensions.lineThickness}
+              isStarPoint={isStarPoint(boardSize, c, r)}
+              starPointMarkerRadius={isStarPoint(boardSize, c, r) ? boardDimensions.starPointMarkerRadius: undefined}
             />
           )
         })
