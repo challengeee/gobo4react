@@ -1,6 +1,11 @@
 import React from 'react'
 import { Intersection } from '../src/components/Intersection'
-import { BlackStone, WhiteStone, WikiBlackStone } from '../src/components/stones'
+import {
+  BlackStone,
+  WhiteStone,
+  WikiBlackStone,
+  WikiWhiteStone,
+} from '../src/components/stones'
 import { useBoardDimensions } from '../src/hooks'
 
 interface StoneWithIntersectionProps {
@@ -10,7 +15,7 @@ interface StoneWithIntersectionProps {
   isRightMost?: boolean
   boardWidth: number
   isStarPoint?: boolean
-  stoneType: 'black' | 'white' | 'wikiBlack'
+  stoneType: 'black' | 'white' | 'wikiBlack' | 'wikiWhite'
   boardType: 'Chinese' | 'Japanese'
 }
 
@@ -34,6 +39,8 @@ export const StoneWithIntersection = ({
         return WhiteStone(boardDimensions)
       case 'wikiBlack':
         return WikiBlackStone(boardDimensions)
+      case 'wikiWhite':
+        return WikiWhiteStone(boardDimensions)
       default:
         return BlackStone(boardDimensions)
     }
@@ -44,7 +51,7 @@ export const StoneWithIntersection = ({
       style={{
         width: boardDimensions.horizontalLineSpacing,
         height: boardDimensions.verticalLineSpacing,
-        backgroundColor: 'green',
+        backgroundColor: '#DCB35C',
       }}
     >
       <Intersection
