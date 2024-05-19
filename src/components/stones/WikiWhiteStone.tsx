@@ -1,8 +1,12 @@
-import { RenderItem } from '../../hooks/useBoardState'
+import { RenderStone } from '../../hooks/useBoardState'
 
 // from https://en.m.wikipedia.org/wiki/File:Go_w1.svg
-export const WikiWhiteStone: RenderItem = ({horizontalLineSpacing, verticalLineSpacing, stoneRadius}) => {
-  const id = "wiki-white-stone-gradient"
+export const WikiWhiteStone: RenderStone = ({
+  horizontalLineSpacing,
+  verticalLineSpacing,
+  stoneRadius,
+}) => {
+  const id = 'wiki-white-stone-gradient'
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
