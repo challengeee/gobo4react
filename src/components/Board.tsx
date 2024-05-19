@@ -29,7 +29,7 @@ export const Board = ({
     >
       {[...Array(boardSize)].map((_, r) => {
         return [...Array(boardSize)].map((_, c) => {
-          const renderItem = boardState && boardState[r][c]
+          const renderStone = boardState && boardState[r][c]
           return (
             <Intersection
               key={`${r},${c}`}
@@ -47,7 +47,7 @@ export const Board = ({
                   : undefined
               }
             >
-              {renderItem && renderItem({...boardDimensions})}
+              {renderStone && renderStone({ ...boardDimensions })}
             </Intersection>
           )
         })
