@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Gobo } from '../src/components/Gobo'
 // import { useBoardState } from '../src/hooks'
-import { BlackStone } from '../src/components/BlackStone'
-import { WhiteStone } from '../src/components/WhiteStone'
+import { BlackStone } from '../src/components/stones/BlackStone'
+import { WhiteStone } from '../src/components/stones/WhiteStone'
 
 const meta = {
   title: 'Gobo',

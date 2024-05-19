@@ -1,4 +1,4 @@
-import { RenderItem } from '../hooks/useBoardState'
+import { RenderItem } from '../../hooks/useBoardState'
 
 export const WhiteStone: RenderItem = (boardDimensions) => {
   return (
