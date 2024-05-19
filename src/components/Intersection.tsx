@@ -6,6 +6,8 @@ type IntersectionProps = {
   width: number
   height: number
   lineThickness: number
+  isStarPoint?: boolean
+  starPointMarkerRadius?: number
 }
 
 export const Intersection = ({
@@ -16,6 +18,8 @@ export const Intersection = ({
   width,
   height,
   lineThickness,
+  isStarPoint=false,
+  starPointMarkerRadius
 }: IntersectionProps) => {
   return (
     <div
@@ -53,6 +57,12 @@ export const Intersection = ({
           strokeWidth={`${lineThickness}px`}
           strokeLinecap="square"
         />
+        {/* star point */}
+        {isStarPoint && starPointMarkerRadius && <circle
+          cx='50%'
+          cy='50%'
+          r={starPointMarkerRadius}
+        />}
       </svg>
     </div>
   )
