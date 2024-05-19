@@ -7,7 +7,7 @@ export interface BoardDimensions {
   verticalLineSpacing: number
   lineThickness: number
   starPointMarkerRadius: number
-  stoneDiameter: number
+  stoneRadius: number
 }
 
 const calculateBoardDimensions = (
@@ -15,14 +15,16 @@ const calculateBoardDimensions = (
   boardSize: number,
 ): BoardDimensions => {
   const boardHeight = (boardWidth * 1.5) / 1.4
+  const horizontalLineSpacing = boardWidth / boardSize
+  const verticalLineSpacing = boardHeight / boardSize
   return {
     boardWidth,
     boardHeight,
-    horizontalLineSpacing: boardWidth / boardSize,
-    verticalLineSpacing: boardHeight / boardSize,
+    horizontalLineSpacing,
+    verticalLineSpacing,
     lineThickness: (boardWidth * 0.3) / 100 / 1.4,
     starPointMarkerRadius: (boardWidth * 1.2) / 100 / 1.4,
-    stoneDiameter: (boardWidth * 7.5) / 100 / 1.4,
+    stoneRadius: horizontalLineSpacing / 2,
   }
 }
 

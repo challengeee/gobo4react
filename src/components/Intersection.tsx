@@ -1,3 +1,5 @@
+import React from 'react'
+
 type IntersectionProps = {
   isTopMost?: boolean
   isBottomMost?: boolean
@@ -18,9 +20,10 @@ export const Intersection = ({
   width,
   height,
   lineThickness,
-  isStarPoint=false,
-  starPointMarkerRadius
-}: IntersectionProps) => {
+  isStarPoint = false,
+  starPointMarkerRadius,
+  children,
+}: React.PropsWithChildren<IntersectionProps>) => {
   return (
     <div
       style={{
@@ -58,11 +61,10 @@ export const Intersection = ({
           strokeLinecap="square"
         />
         {/* star point */}
-        {isStarPoint && starPointMarkerRadius && <circle
-          cx='50%'
-          cy='50%'
-          r={starPointMarkerRadius}
-        />}
+        {isStarPoint && starPointMarkerRadius && (
+          <circle cx="50%" cy="50%" r={starPointMarkerRadius} />
+        )}
+        {children}
       </svg>
     </div>
   )

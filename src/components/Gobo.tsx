@@ -1,16 +1,28 @@
-import React from 'react'
 import { Board } from './Board'
-import { useBoardState } from '../hooks'
 import { useBoardDimensions } from '../hooks'
+import { BoardState } from '../hooks/useBoardState'
 
-export const Gobo = ({
-  boardSize,
-  boardWidth,
-}: React.PropsWithChildren<{
+interface GoboProps {
   boardSize: number
   boardWidth: number
-}>) => {
+  // initialState?: BoardState
+  boardState?: BoardState
+}
+
+export const Gobo = ({ boardSize, boardWidth, boardState }: GoboProps) => {
   const boardDimensions = useBoardDimensions(boardWidth, boardSize)
-  const { addStone } = useBoardState(boardSize)
-  return <Board boardSize={boardSize} boardDimensions={boardDimensions} />
+  // const { boardState, setBoardState } = useBoardState(boardSize)
+  // initialState && setBoardState(initialState)
+
+  // useEffect(() => {
+  //   boardState && setBoardState(boardState)
+  // }, [boardState])
+
+  return (
+    <Board
+      boardSize={boardSize}
+      boardDimensions={boardDimensions}
+      boardState={boardState}
+    />
+  )
 }
