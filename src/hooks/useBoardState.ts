@@ -2,8 +2,7 @@ import { useState } from 'react'
 import React from 'react'
 import { BoardDimensions } from './useBoardDimensions'
 
-// export type RenderItem<T=undefined> = (BoardDimensions: BoardDimensions, optionalProps:T) => React.ReactNode
-export type RenderItem = (props: BoardDimensions & Record<string, unknown>) => React.ReactNode
+export type RenderItem = (BoardDimensions: BoardDimensions) => React.ReactNode
 export type BoardState = (RenderItem | undefined)[][]
 
 export const useBoardState = (boardSize: number) => {

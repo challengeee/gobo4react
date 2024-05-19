@@ -1,7 +1,7 @@
 import { RenderItem } from '../../hooks/useBoardState'
 
-export const BlackStone: RenderItem = ({stoneRadius}) => {
+export const BlackStone: RenderItem = (boardDimensions) => {
   return (
-    <circle cx="50%" cy="50%" r={stoneRadius} fill="black" />
+    <circle cx="50%" cy="50%" r={boardDimensions?.stoneRadius} fill="black" />
   )
 }

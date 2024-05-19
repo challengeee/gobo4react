@@ -47,7 +47,7 @@ export const Board = ({
                   : undefined
               }
             >
-              {renderItem && renderItem({...boardDimensions})}
+              {renderItem && renderItem(boardDimensions)}
             </Intersection>
           )
         })
