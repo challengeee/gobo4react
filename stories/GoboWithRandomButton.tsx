@@ -1,8 +1,8 @@
 import React from 'react'
 import { Gobo } from '../src/components/Gobo'
 import { useBoardState } from '../src/hooks'
-import { BlackStone } from '../src/components/BlackStone'
-import { WhiteStone } from '../src/components/WhiteStone'
+import { BlackStone } from '../src/components/stones/BlackStone'
+import { WhiteStone } from '../src/components/stones/WhiteStone'
 
 interface GoboWithRandomButtonProps {
   boardWidth: number
@@ -22,9 +22,7 @@ export const GoboWithRandomButton = ({
         onClick={() => {
           const randomCol = Math.floor(Math.random() * boardSize)
           const randomRow = Math.floor(Math.random() * boardSize)
-          addStone(randomCol, randomRow, (boardDimensions) =>
-            BlackStone(boardDimensions),
-          )
+          addStone(randomCol, randomRow, BlackStone)
         }}
       >
         put Black Stone
@@ -33,9 +31,7 @@ export const GoboWithRandomButton = ({
         onClick={() => {
           const randomCol = Math.floor(Math.random() * boardSize)
           const randomRow = Math.floor(Math.random() * boardSize)
-          addStone(randomCol, randomRow, (boardDimensions) =>
-            WhiteStone(boardDimensions),
-          )
+          addStone(randomCol, randomRow, WhiteStone)
         }}
       >
         put White Stone
