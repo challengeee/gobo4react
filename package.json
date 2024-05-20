@@ -10,7 +10,8 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "format:check": "prettier --check . --cache",
-    "format:write": "prettier --write . --cache"
+    "format:write": "prettier --write . --cache",
+    "test": "jest"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -27,6 +28,7 @@
     "@storybook/react-vite": "^8.0.10",
     "@storybook/test": "^8.0.10",
     "@testing-library/react": "^15.0.7",
+    "@types/jest": "^29.5.12",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
