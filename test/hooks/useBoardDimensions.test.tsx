@@ -1,4 +1,3 @@
-// import '@testing-library/jest-dom'
 import { renderHook } from '@testing-library/react'
 import { useBoardDimensions } from '../../src/hooks/useBoardDimensions'
 
