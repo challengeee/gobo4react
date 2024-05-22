@@ -3,7 +3,7 @@ import { useBoardDimensions } from '../../src/hooks/useBoardDimensions'
 
 describe('useBoardDimensions', () => {
   // https://en.wikipedia.org/wiki/Go_equipment
-  it('should be same value as Wikipedia in Japanese units', () => {
+  it('should return same value as Wikipedia in Japanese units', () => {
     const { result } = renderHook(() => useBoardDimensions(1.4, 19, 'Japanese'))
     expect(result.current.boardWidth).toBeCloseTo(1.4)
     expect(result.current.boardHeight).toBeCloseTo(1.5)
