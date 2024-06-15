@@ -1,3 +1,4 @@
+import React from 'react'
 import { Board } from './Board'
 import { useBoardDimensions } from '../hooks'
 import { BoardState } from '../hooks/useBoardState'

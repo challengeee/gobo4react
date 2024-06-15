@@ -1,3 +1,4 @@
+import React from 'react'
 import { RenderStone } from '../../hooks/useBoardState'
 
 export const BlackStone: RenderStone = ({ stoneRadius }) => {

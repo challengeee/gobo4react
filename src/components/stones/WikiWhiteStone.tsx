@@ -1,3 +1,4 @@
+import React from 'react'
 import { RenderStone } from '../../hooks/useBoardState'
 
 // from https://en.m.wikipedia.org/wiki/File:Go_w1.svg

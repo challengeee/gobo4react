@@ -15,8 +15,8 @@ export const useBoardState = (boardSize: number) => {
 
   const addStone = (col: number, row: number, renderStone: RenderStone) => {
     setBoardState(
-      boardState.map((stones, rowIndex) =>
-        stones.map((prevStone, colIndex) =>
+      boardState.map((stones, colIndex) =>
+        stones.map((prevStone, rowIndex) =>
           colIndex === col && rowIndex === row ? renderStone : prevStone,
         ),
       ),
@@ -25,8 +25,8 @@ export const useBoardState = (boardSize: number) => {
 
   const removeStone = (col: number, row: number) => {
     setBoardState(
-      boardState.map((stones, rowIndex) =>
-        stones.map((prevStone, colIndex) =>
+      boardState.map((stones, colIndex) =>
+        stones.map((prevStone, rowIndex) =>
           colIndex === col && rowIndex === row ? undefined : prevStone,
         ),
       ),
