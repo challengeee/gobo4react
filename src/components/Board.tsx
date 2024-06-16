@@ -9,12 +9,14 @@ type BoardProps = {
   boardSize: number
   boardDimensions: BoardDimensions
   boardState?: BoardState
+  onHover?: (c: number, r: number) => void
 }
 
 export const Board = ({
   boardSize,
   boardDimensions,
   boardState,
+  // onHover,
 }: React.PropsWithChildren<BoardProps>) => {
   return (
     <div
