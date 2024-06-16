@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react'
 import { useBoardState } from '../../src/hooks/useBoardState'
-import {WhiteStone, BlackStone} from '../../src/components/stones'
+import { WhiteStone, BlackStone } from '../../src/components/stones'
 import { act } from 'react'
 
 describe('useBoardState', () => {
