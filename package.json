@@ -37,6 +37,15 @@
     "format": "prettier --write . --cache",
     "test": "jest"
   },
+  "keywords": [
+    "react",
+    "Go",
+    "Baduk",
+    "Weiqi",
+    "goban",
+    "Goban",
+    "gobo"
+  ],
   "jest": {
     "preset": "ts-jest",
     "testEnvironment": "jest-environment-jsdom",
