@@ -48,9 +48,6 @@
     },
     "verbose": true
   },
-  "dependencies": {
-    "react-native-svg": "^15.3.0"
-  },
   "peerDependencies": {
     "react": "*",
     "react-dom": "*"
