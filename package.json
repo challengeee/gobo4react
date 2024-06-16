@@ -34,7 +34,7 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "format:check": "prettier --check . --cache",
-    "format:write": "prettier --write . --cache",
+    "format": "prettier --write . --cache",
     "test": "jest"
   },
   "jest": {
