@@ -24,6 +24,7 @@ export const Black: Story = {
     isStarPoint: false,
     stoneType: 'black',
     boardType: 'Chinese',
+    opacity: 1,
   },
 }
 
@@ -37,6 +38,7 @@ export const White: Story = {
     isStarPoint: false,
     stoneType: 'white',
     boardType: 'Chinese',
+    opacity: 1,
   },
 }
 
@@ -50,6 +52,7 @@ export const WikiBlack: Story = {
     isStarPoint: false,
     stoneType: 'wikiBlack',
     boardType: 'Chinese',
+    opacity: 1,
   },
 }
 
@@ -63,5 +66,6 @@ export const WikiWhite: Story = {
     isStarPoint: false,
     stoneType: 'wikiWhite',
     boardType: 'Chinese',
+    opacity: 1,
   },
 }
