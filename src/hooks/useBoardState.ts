@@ -3,10 +3,13 @@ import React from 'react'
 
 import { BoardDimensions } from './useBoardDimensions'
 
+export type RenderStoneProps = BoardDimensions & { opacity?: number } & Record<
+    string,
+    unknown
+  >
+
 // export type RenderStone<T=undefined> = (BoardDimensions: BoardDimensions, optionalProps:T) => React.ReactNode
-export type RenderStone = (
-  props: BoardDimensions & Record<string, unknown>,
-) => React.ReactNode
+export type RenderStone = (props: RenderStoneProps) => React.ReactNode
 export type BoardState = (RenderStone | undefined)[][]
 
 export const useBoardState = (boardSize: number) => {
