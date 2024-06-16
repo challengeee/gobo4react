@@ -53,6 +53,7 @@
   "bugs": {
     "url": "https://github.com/challengeee/gobo4react/issues"
   },
+  "license": "MIT",
   "author": "ReiRev <reirev2913@gmail.com> (https://reirev.net)",
   "jest": {
     "preset": "ts-jest",
