@@ -55,6 +55,16 @@
   },
   "license": "MIT",
   "author": "ReiRev <reirev2913@gmail.com> (https://reirev.net)",
+  "funding": [
+    {
+      "type": "individual",
+      "url": "https://github.com/sponsors/ReiRev"
+    },
+    {
+      "type": "individual",
+      "url": "https://ko-fi.com/reirev"
+    }
+  ],
   "jest": {
     "preset": "ts-jest",
     "testEnvironment": "jest-environment-jsdom",
