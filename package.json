@@ -37,6 +37,34 @@
     "format": "prettier --write . --cache",
     "test": "jest"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/challengeee/gobo4react"
+  },
+  "keywords": [
+    "react",
+    "Go",
+    "Baduk",
+    "Weiqi",
+    "goban",
+    "Goban",
+    "gobo"
+  ],
+  "bugs": {
+    "url": "https://github.com/challengeee/gobo4react/issues"
+  },
+  "license": "MIT",
+  "author": "ReiRev <reirev2913@gmail.com> (https://reirev.net)",
+  "funding": [
+    {
+      "type": "individual",
+      "url": "https://github.com/sponsors/ReiRev"
+    },
+    {
+      "type": "individual",
+      "url": "https://ko-fi.com/reirev"
+    }
+  ],
   "jest": {
     "preset": "ts-jest",
     "testEnvironment": "jest-environment-jsdom",
