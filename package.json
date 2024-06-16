@@ -48,9 +48,12 @@
     },
     "verbose": true
   },
+  "dependencies": {
+    "react-native-svg": "^15.3.0"
+  },
   "peerDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "*",
+    "react-dom": "*"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1.3.5",
