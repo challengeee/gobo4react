@@ -50,6 +50,7 @@
     "Goban",
     "gobo"
   ],
+  "author": "ReiRev <reirev2913@gmail.com> (https://reirev.net)",
   "jest": {
     "preset": "ts-jest",
     "testEnvironment": "jest-environment-jsdom",
