@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
+
 import { Intersection } from '../src/components/Intersection'
 
 const meta = {

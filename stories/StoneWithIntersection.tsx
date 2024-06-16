@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { Intersection } from '../src/components/Intersection'
 import {
   BlackStone,
