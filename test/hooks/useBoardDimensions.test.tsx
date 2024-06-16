@@ -1,4 +1,5 @@
 import { renderHook } from '@testing-library/react'
+
 import { useBoardDimensions } from '../../src/hooks/useBoardDimensions'
 
 describe('useBoardDimensions', () => {

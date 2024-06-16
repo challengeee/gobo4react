@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
+
 import { Gobo } from '../src/components/Gobo'
 // import { useBoardState } from '../src/hooks'
 import { BlackStone } from '../src/components/stones/BlackStone'

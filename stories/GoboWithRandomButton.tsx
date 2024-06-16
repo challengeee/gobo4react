@@ -1,8 +1,9 @@
 import React from 'react'
+
 import { Gobo } from '../src/components/Gobo'
-import { useBoardState } from '../src/hooks'
 import { BlackStone, WikiBlackStone } from '../src/components/stones'
 import { WhiteStone, WikiWhiteStone } from '../src/components/stones'
+import { useBoardState } from '../src/hooks'
 
 interface GoboWithRandomButtonProps {
   boardWidth: number

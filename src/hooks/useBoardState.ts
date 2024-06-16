@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import React from 'react'
+
 import { BoardDimensions } from './useBoardDimensions'
 
 // export type RenderStone<T=undefined> = (BoardDimensions: BoardDimensions, optionalProps:T) => React.ReactNode

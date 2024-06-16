@@ -1,8 +1,9 @@
 import React from 'react'
-import { Intersection } from './Intersection'
+
 import { BoardDimensions } from '../hooks/useBoardDimensions'
-import { isStarPoint } from '../utils'
 import { BoardState } from '../hooks/useBoardState'
+import { isStarPoint } from '../utils'
+import { Intersection } from './Intersection'
 
 type BoardProps = {
   boardSize: number
