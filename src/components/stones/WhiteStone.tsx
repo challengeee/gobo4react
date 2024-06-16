@@ -1,13 +1,14 @@
 import React from 'react'
 
-import { BoardDimensions } from '../../hooks/useBoardDimensions'
 import { RenderStone } from '../../hooks/useBoardState'
+import { RenderStoneProps } from '../../hooks/useBoardState'
 
 export const WhiteStone: RenderStone = ({
   stoneRadius,
   lineThickness,
   borderSize,
-}: BoardDimensions & { borderSize?: number }) => {
+  opacity = 1,
+}: RenderStoneProps & { borderSize?: number }) => {
   return (
     <svg>
       <circle
@@ -15,8 +16,10 @@ export const WhiteStone: RenderStone = ({
         cy="50%"
         r={stoneRadius}
         fill="white"
+        fillOpacity={opacity}
         stroke="black"
         strokeWidth={borderSize || lineThickness / 2}
+        strokeOpacity={opacity}
       />
     </svg>
   )
