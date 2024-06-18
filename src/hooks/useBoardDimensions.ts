@@ -1,14 +1,6 @@
 import { useMemo } from 'react'
 
-export interface BoardDimensions {
-  boardWidth: number
-  boardHeight: number
-  horizontalLineSpacing: number
-  verticalLineSpacing: number
-  lineThickness: number
-  starPointMarkerRadius: number
-  stoneRadius: number
-}
+import { BoardDimensions } from '../types'
 
 const calculateBoardDimensions = (
   boardWidth: number,

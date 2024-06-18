@@ -1,12 +1,13 @@
 import React from 'react'
 
-import { RenderStone } from '../../hooks/useBoardState'
+import { RenderStone } from '../../types'
 
 // from https://en.m.wikipedia.org/wiki/File:Go_w1.svg
 export const WikiWhiteStone: RenderStone = ({
   horizontalLineSpacing,
   verticalLineSpacing,
   stoneRadius,
+  opacity = 1,
 }) => {
   const id = 'wiki-white-stone-gradient'
   return (
@@ -22,7 +23,13 @@ export const WikiWhiteStone: RenderStone = ({
           <stop offset="1" stopColor="#777" />
         </radialGradient>
       </defs>
-      <circle fill={`url(#${id})`} r={stoneRadius} cx="50%" cy="50%" />
+      <circle
+        fill={`url(#${id})`}
+        fillOpacity={opacity}
+        r={stoneRadius}
+        cx="50%"
+        cy="50%"
+      />
     </svg>
   )
 }

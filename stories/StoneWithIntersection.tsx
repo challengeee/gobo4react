@@ -8,6 +8,7 @@ import {
   WikiWhiteStone,
 } from '../src/components/stones'
 import { useBoardDimensions } from '../src/hooks'
+import { RenderStoneProps } from '../src/hooks/useBoardState'
 
 interface StoneWithIntersectionProps {
   isTopMost?: boolean
@@ -18,6 +19,7 @@ interface StoneWithIntersectionProps {
   isStarPoint?: boolean
   stoneType: 'black' | 'white' | 'wikiBlack' | 'wikiWhite'
   boardType: 'Chinese' | 'Japanese'
+  opacity?: number
 }
 
 export const StoneWithIntersection = ({
@@ -29,21 +31,26 @@ export const StoneWithIntersection = ({
   isStarPoint,
   stoneType,
   boardType = 'Chinese',
+  opacity = 100,
 }: StoneWithIntersectionProps) => {
   const boardDimensions = useBoardDimensions(boardWidth, 19, boardType)
+  const renderStoneprops: RenderStoneProps = {
+    opacity,
+    ...boardDimensions,
+  }
 
   const Stone = (stoneType) => {
     switch (stoneType) {
       case 'black':
-        return BlackStone(boardDimensions)
+        return BlackStone(renderStoneprops)
       case 'white':
-        return WhiteStone(boardDimensions)
+        return WhiteStone(renderStoneprops)
       case 'wikiBlack':
-        return WikiBlackStone(boardDimensions)
+        return WikiBlackStone(renderStoneprops)
       case 'wikiWhite':
-        return WikiWhiteStone(boardDimensions)
+        return WikiWhiteStone(renderStoneprops)
       default:
-        return BlackStone(boardDimensions)
+        return BlackStone(renderStoneprops)
     }
   }
 

@@ -9,8 +9,8 @@ interface GoboWithRandomButtonProps {
   boardWidth: number
   boardSize: number
   boardType?: 'Chinese' | 'Japanese'
-  whiteStone: 'WhiteStone' | 'WikiWhiteStone'
-  blackStone: 'BlackStone' | 'WikiBlackStone'
+  whiteStone?: 'WhiteStone' | 'WikiWhiteStone'
+  blackStone?: 'BlackStone' | 'WikiBlackStone'
 }
 
 export const GoboWithRandomButton = ({
