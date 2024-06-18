@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { RenderStone } from '../../hooks/useBoardState'
+import { RenderStone } from '../../types'
 
 export const BlackStone: RenderStone = ({ stoneRadius, opacity = 1 }) => {
   return (

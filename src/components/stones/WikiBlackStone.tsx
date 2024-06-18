@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { RenderStone } from '../../hooks/useBoardState'
+import { RenderStone } from '../../types'
 
 // from https://en.m.wikipedia.org/wiki/File:Go_b1.svg
 export const WikiBlackStone: RenderStone = ({

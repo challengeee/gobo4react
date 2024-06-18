@@ -1,7 +1,6 @@
 import React from 'react'
 
-import { RenderStone } from '../../hooks/useBoardState'
-import { RenderStoneProps } from '../../hooks/useBoardState'
+import { RenderStone, RenderStoneProps } from '../../types'
 
 export const WhiteStone: RenderStone = ({
   stoneRadius,

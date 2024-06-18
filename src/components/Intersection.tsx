@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
+
+import { BoardDimensions, OnHover } from '../types'
 
 type IntersectionProps = {
+  row: number
+  col: number
   isTopMost?: boolean
   isBottomMost?: boolean
   isLeftMost?: boolean
@@ -10,9 +14,13 @@ type IntersectionProps = {
   lineThickness: number
   isStarPoint?: boolean
   starPointMarkerRadius?: number
+  boardDimensions: BoardDimensions
+  onHover?: OnHover
 }
 
 export const Intersection = ({
+  row,
+  col,
   isTopMost,
   isBottomMost,
   isLeftMost,
@@ -22,8 +30,11 @@ export const Intersection = ({
   lineThickness,
   isStarPoint = false,
   starPointMarkerRadius,
+  boardDimensions,
+  onHover,
   children,
 }: React.PropsWithChildren<IntersectionProps>) => {
+  const [hovered, setHovered] = useState(false)
   return (
     <div
       style={{
@@ -33,6 +44,8 @@ export const Intersection = ({
         padding: 0,
         textAlign: 'center',
       }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
     >
       <svg
         style={{
@@ -65,6 +78,7 @@ export const Intersection = ({
           <circle cx="50%" cy="50%" r={starPointMarkerRadius} />
         )}
         {children}
+        {hovered && onHover && onHover({ row, col, ...boardDimensions })}
       </svg>
     </div>
   )
