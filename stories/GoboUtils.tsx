@@ -38,19 +38,6 @@ export const GoboUtils = ({
     <div>
       <div>
         <label>
-          row
-          <input
-            type="number"
-            min={1}
-            max={boardSize}
-            onChange={(e) =>
-              setCoordinate({ ...coordinate, row: Number(e.target.value) })
-            }
-            name="row"
-            style={{ width: 30 }}
-          />
-        </label>
-        <label>
           col
           <input
             type="number"
@@ -60,6 +47,19 @@ export const GoboUtils = ({
               setCoordinate({ ...coordinate, col: Number(e.target.value) })
             }
             name="col"
+            style={{ width: 30 }}
+          />
+        </label>
+        <label>
+          row
+          <input
+            type="number"
+            min={1}
+            max={boardSize}
+            onChange={(e) =>
+              setCoordinate({ ...coordinate, row: Number(e.target.value) })
+            }
+            name="row"
             style={{ width: 30 }}
           />
         </label>
@@ -88,6 +88,9 @@ export const GoboUtils = ({
         boardType={boardType}
         onHover={(props) => {
           return WikiBlackStone({ ...props, opacity: 0.5 })
+        }}
+        onClick={(props) => {
+          addStone(props.col, props.row, blackStoneRenderer)
         }}
       />
     </div>

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { BoardDimensions, BoardState, OnHover } from '../types'
+import { BoardDimensions, BoardState, StoneInteraction } from '../types'
 import { isStarPoint } from '../utils'
 import { Intersection } from './Intersection'
 
@@ -8,7 +8,8 @@ type BoardProps = {
   boardSize: number
   boardDimensions: BoardDimensions
   boardState?: BoardState
-  onHover?: OnHover
+  onHover?: StoneInteraction
+  onClick?: StoneInteraction<void>
 }
 
 export const Board = ({
@@ -16,6 +17,7 @@ export const Board = ({
   boardDimensions,
   boardState,
   onHover,
+  onClick,
 }: React.PropsWithChildren<BoardProps>) => {
   return (
     <div
@@ -31,7 +33,7 @@ export const Board = ({
     >
       {[...Array(boardSize)].map((_, row) => {
         return [...Array(boardSize)].map((_, col) => {
-          const renderStone = boardState && boardState[row][col]
+          const renderStone = boardState && boardState[col][row]
           return (
             <Intersection
               row={row}
@@ -52,6 +54,7 @@ export const Board = ({
               }
               boardDimensions={boardDimensions}
               onHover={onHover}
+              onClick={onClick}
             >
               {renderStone && renderStone({ ...boardDimensions })}
             </Intersection>

@@ -1,3 +1,5 @@
+import React from 'react'
+
 export interface BoardDimensions {
   boardWidth: number
   boardHeight: number
@@ -14,6 +16,11 @@ export type RenderStoneProps = BoardDimensions & { opacity?: number } & Record<
   >
 export type RenderStone = (props: RenderStoneProps) => React.ReactNode
 export type BoardState = (RenderStone | undefined)[][]
-export type OnHover = (
-  args: { row: number; col: number } & BoardDimensions,
-) => React.ReactNode
+
+export type StoneInteractionArgs = {
+  row: number
+  col: number
+} & BoardDimensions
+export type StoneInteraction<ReturnType = React.ReactNode> = (
+  args: StoneInteractionArgs,
+) => ReturnType
