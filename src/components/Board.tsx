@@ -33,7 +33,7 @@ export const Board = ({
     >
       {[...Array(boardSize)].map((_, row) => {
         return [...Array(boardSize)].map((_, col) => {
-          const renderStone = boardState && boardState[row][col]
+          const renderStone = boardState && boardState[col][row]
           return (
             <Intersection
               row={row}
