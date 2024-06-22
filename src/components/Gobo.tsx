@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { useBoardDimensions } from '../hooks'
-import { BoardState, OnHover } from '../types'
+import { BoardState, StoneInteraction } from '../types'
 import { Board } from './Board'
 
 interface GoboProps {
@@ -9,7 +9,8 @@ interface GoboProps {
   boardWidth: number
   boardState?: BoardState
   boardType?: 'Chinese' | 'Japanese'
-  onHover?: OnHover
+  onHover?: StoneInteraction
+  onClick?: StoneInteraction<void>
 }
 
 export const Gobo = ({
@@ -18,6 +19,7 @@ export const Gobo = ({
   boardState,
   boardType = 'Chinese',
   onHover,
+  onClick,
 }: GoboProps) => {
   const boardDimensions = useBoardDimensions(boardWidth, boardSize, boardType)
 
@@ -27,6 +29,7 @@ export const Gobo = ({
       boardDimensions={boardDimensions}
       boardState={boardState}
       onHover={onHover}
+      onClick={onClick}
     />
   )
 }

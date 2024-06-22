@@ -89,6 +89,9 @@ export const GoboUtils = ({
         onHover={(props) => {
           return WikiBlackStone({ ...props, opacity: 0.5 })
         }}
+        onClick={(props) => {
+          addStone(props.col, props.row, blackStoneRenderer)
+        }}
       />
     </div>
   )

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { BoardDimensions, OnHover } from '../types'
+import { BoardDimensions, StoneInteraction } from '../types'
 
 type IntersectionProps = {
   row: number
@@ -15,7 +15,8 @@ type IntersectionProps = {
   isStarPoint?: boolean
   starPointMarkerRadius?: number
   boardDimensions: BoardDimensions
-  onHover?: OnHover
+  onHover?: StoneInteraction
+  onClick?: StoneInteraction<void>
 }
 
 export const Intersection = ({
@@ -32,6 +33,7 @@ export const Intersection = ({
   starPointMarkerRadius,
   boardDimensions,
   onHover,
+  onClick,
   children,
 }: React.PropsWithChildren<IntersectionProps>) => {
   const [hovered, setHovered] = useState(false)
@@ -46,6 +48,7 @@ export const Intersection = ({
       }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      onClick={() => onClick && onClick({ row, col, ...boardDimensions })}
     >
       <svg
         style={{
