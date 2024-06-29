@@ -10,6 +10,7 @@ type BoardProps = {
   boardState?: BoardState
   onHover?: StoneInteraction
   onClick?: StoneInteraction<void>
+  onDoubleClick?: StoneInteraction<void>
 }
 
 export const Board = ({
@@ -18,6 +19,7 @@ export const Board = ({
   boardState,
   onHover,
   onClick,
+  onDoubleClick,
 }: React.PropsWithChildren<BoardProps>) => {
   return (
     <div
@@ -55,6 +57,7 @@ export const Board = ({
               boardDimensions={boardDimensions}
               onHover={onHover}
               onClick={onClick}
+              onDoubleClick={onDoubleClick}
             >
               {renderStone && renderStone({ ...boardDimensions })}
             </Intersection>

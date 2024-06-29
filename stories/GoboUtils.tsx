@@ -20,7 +20,7 @@ export const GoboUtils = ({
   whiteStone = 'WikiWhiteStone',
   blackStone = 'WikiBlackStone',
 }: GoboUtilsProps) => {
-  const { boardState, addStone } = useBoardState(boardSize)
+  const { boardState, addStone, removeStone } = useBoardState(boardSize)
   const whiteStoneRenderer =
     whiteStone === 'WhiteStone'
       ? WhiteStone
@@ -91,6 +91,9 @@ export const GoboUtils = ({
         }}
         onClick={(props) => {
           addStone(props.col, props.row, blackStoneRenderer)
+        }}
+        onDoubleClick={(props) => {
+          removeStone(props.col, props.row)
         }}
       />
     </div>
