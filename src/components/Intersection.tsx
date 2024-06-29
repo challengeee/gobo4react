@@ -17,6 +17,7 @@ type IntersectionProps = {
   boardDimensions: BoardDimensions
   onHover?: StoneInteraction
   onClick?: StoneInteraction<void>
+  onDoubleClick?: StoneInteraction<void>
 }
 
 export const Intersection = ({
@@ -34,6 +35,7 @@ export const Intersection = ({
   boardDimensions,
   onHover,
   onClick,
+  onDoubleClick,
   children,
 }: React.PropsWithChildren<IntersectionProps>) => {
   const [hovered, setHovered] = useState(false)
@@ -49,6 +51,9 @@ export const Intersection = ({
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       onClick={() => onClick && onClick({ row, col, ...boardDimensions })}
+      onDoubleClick={() =>
+        onDoubleClick && onDoubleClick({ row, col, ...boardDimensions })
+      }
     >
       <svg
         style={{

@@ -11,6 +11,7 @@ interface GoboProps {
   boardType?: 'Chinese' | 'Japanese'
   onHover?: StoneInteraction
   onClick?: StoneInteraction<void>
+  onDoubleClick?: StoneInteraction<void>
 }
 
 export const Gobo = ({
@@ -20,6 +21,7 @@ export const Gobo = ({
   boardType = 'Chinese',
   onHover,
   onClick,
+  onDoubleClick,
 }: GoboProps) => {
   const boardDimensions = useBoardDimensions(boardWidth, boardSize, boardType)
 
@@ -30,6 +32,7 @@ export const Gobo = ({
       boardState={boardState}
       onHover={onHover}
       onClick={onClick}
+      onDoubleClick={onDoubleClick}
     />
   )
 }
