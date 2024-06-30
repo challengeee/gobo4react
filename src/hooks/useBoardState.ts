@@ -27,5 +27,9 @@ export const useBoardState = (boardSize: number) => {
     )
   }
 
-  return { boardState, setBoardState, addStone, removeStone }
+  const clearBoard = () => {
+    setBoardState(Array(boardSize).fill(Array(boardSize).fill(undefined)))
+  }
+
+  return { boardState, setBoardState, addStone, removeStone, clearBoard }
 }

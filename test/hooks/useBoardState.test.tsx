@@ -53,6 +53,22 @@ describe('useBoardState', () => {
 
           expect(result.current.boardState[col][row]).toBeUndefined()
         })
+
+        it('should clear board', () => {
+          const { result } = renderHook(() => useBoardState(boardSize))
+
+          act(() => {
+            result.current.addStone(col, row, renderStone)
+          })
+
+          act(() => {
+            result.current.clearBoard()
+          })
+
+          expect(result.current.boardState).toStrictEqual(
+            Array(boardSize).fill(Array(boardSize).fill(undefined)),
+          )
+        })
       })
     })
   })

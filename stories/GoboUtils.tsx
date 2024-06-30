@@ -20,7 +20,8 @@ export const GoboUtils = ({
   whiteStone = 'WikiWhiteStone',
   blackStone = 'WikiBlackStone',
 }: GoboUtilsProps) => {
-  const { boardState, addStone, removeStone } = useBoardState(boardSize)
+  const { boardState, addStone, removeStone, clearBoard } =
+    useBoardState(boardSize)
   const whiteStoneRenderer =
     whiteStone === 'WhiteStone'
       ? WhiteStone
@@ -33,52 +34,11 @@ export const GoboUtils = ({
       : blackStone === 'WikiBlackStone'
         ? WikiBlackStone
         : BlackStone
-  const [coordinate, setCoordinate] = React.useState({ col: 0, row: 0 })
+  const [isBlackTurn, setIsBlackTurn] = React.useState(true)
   return (
     <div>
       <div>
-        <label>
-          col
-          <input
-            type="number"
-            min={1}
-            max={boardSize}
-            onChange={(e) =>
-              setCoordinate({ ...coordinate, col: Number(e.target.value) })
-            }
-            name="col"
-            style={{ width: 30 }}
-          />
-        </label>
-        <label>
-          row
-          <input
-            type="number"
-            min={1}
-            max={boardSize}
-            onChange={(e) =>
-              setCoordinate({ ...coordinate, row: Number(e.target.value) })
-            }
-            name="row"
-            style={{ width: 30 }}
-          />
-        </label>
-        <input
-          type="button"
-          value="put black"
-          onClick={(event) => {
-            event.preventDefault()
-            addStone(coordinate.col - 1, coordinate.row - 1, blackStoneRenderer)
-          }}
-        />
-        <input
-          type="button"
-          value="put white"
-          onClick={(event) => {
-            event.preventDefault()
-            addStone(coordinate.col - 1, coordinate.row - 1, whiteStoneRenderer)
-          }}
-        />
+        <button onClick={clearBoard}>clear</button>
       </div>
 
       <Gobo
@@ -87,10 +47,17 @@ export const GoboUtils = ({
         boardState={boardState}
         boardType={boardType}
         onHover={(props) => {
-          return WikiBlackStone({ ...props, opacity: 0.5 })
+          return isBlackTurn
+            ? WikiBlackStone({ ...props, opacity: 0.5 })
+            : WikiWhiteStone({ ...props, opacity: 0.5 })
         }}
         onClick={(props) => {
-          addStone(props.col, props.row, blackStoneRenderer)
+          addStone(
+            props.col,
+            props.row,
+            isBlackTurn ? blackStoneRenderer : whiteStoneRenderer,
+          )
+          setIsBlackTurn(!isBlackTurn)
         }}
         onDoubleClick={(props) => {
           removeStone(props.col, props.row)
