@@ -36,8 +36,7 @@ export const StoneWithIntersection = ({
   index,
 }: StoneWithIntersectionProps) => {
   const boardDimensions = useBoardDimensions(boardWidth, 19, boardType)
-  // TODO: Fix name to renderStoneProps
-  const renderStoneprops: RenderStoneProps = {
+  const renderStoneProps: RenderStoneProps = {
     opacity,
     index,
     ...boardDimensions,
@@ -46,15 +45,15 @@ export const StoneWithIntersection = ({
   const Stone = (stoneType) => {
     switch (stoneType) {
       case 'black':
-        return BlackStone(renderStoneprops)
+        return BlackStone(renderStoneProps)
       case 'white':
-        return WhiteStone(renderStoneprops)
+        return WhiteStone(renderStoneProps)
       case 'wikiBlack':
-        return WikiBlackStone(renderStoneprops)
+        return WikiBlackStone(renderStoneProps)
       case 'wikiWhite':
-        return WikiWhiteStone(renderStoneprops)
+        return WikiWhiteStone(renderStoneProps)
       default:
-        return BlackStone(renderStoneprops)
+        return BlackStone(renderStoneProps)
     }
   }
 
