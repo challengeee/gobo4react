@@ -84,6 +84,7 @@ export const GoboUtils = ({
               boardState={boardState}
               boardType={boardType}
               onHover={(props) => {
+                if (boardState[props.col][props.row] !== undefined) return
                 return isBlackTurn
                   ? WikiBlackStone({ ...props, opacity: 0.5 })
                   : WikiWhiteStone({ ...props, opacity: 0.5 })
