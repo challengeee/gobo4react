@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 
 import { useBoardDimensions } from '../hooks'
 import { BoardState, StoneInteraction } from '../types'
@@ -14,25 +14,31 @@ interface GoboProps {
   onDoubleClick?: StoneInteraction<void>
 }
 
-export const Gobo = ({
-  boardSize,
-  boardWidth,
-  boardState,
-  boardType = 'Chinese',
-  onHover,
-  onClick,
-  onDoubleClick,
-}: GoboProps) => {
-  const boardDimensions = useBoardDimensions(boardWidth, boardSize, boardType)
+export const Gobo = forwardRef<HTMLDivElement, GoboProps>(
+  (
+    {
+      boardSize,
+      boardWidth,
+      boardState,
+      boardType = 'Chinese',
+      onHover,
+      onClick,
+      onDoubleClick,
+    }: GoboProps,
+    ref,
+  ) => {
+    const boardDimensions = useBoardDimensions(boardWidth, boardSize, boardType)
 
-  return (
-    <Board
-      boardSize={boardSize}
-      boardDimensions={boardDimensions}
-      boardState={boardState}
-      onHover={onHover}
-      onClick={onClick}
-      onDoubleClick={onDoubleClick}
-    />
-  )
-}
+    return (
+      <Board
+        ref={ref}
+        boardSize={boardSize}
+        boardDimensions={boardDimensions}
+        boardState={boardState}
+        onHover={onHover}
+        onClick={onClick}
+        onDoubleClick={onDoubleClick}
+      />
+    )
+  },
+)
