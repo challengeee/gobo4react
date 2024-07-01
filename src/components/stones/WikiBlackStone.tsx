@@ -8,6 +8,8 @@ export const WikiBlackStone: RenderStone = ({
   verticalLineSpacing,
   stoneRadius,
   opacity = 1,
+  index,
+  fontFamily = 'Arial',
 }) => {
   const id = 'wiki-black-stone-gradient'
   return (
@@ -30,6 +32,19 @@ export const WikiBlackStone: RenderStone = ({
         cx="50%"
         cy="50%"
       />
+      {index !== undefined && (
+        <text
+          x="50%"
+          y="50%"
+          dominantBaseline="mathematical"
+          textAnchor="middle"
+          fontSize={`${stoneRadius}px`}
+          fontFamily={fontFamily}
+          fill="#fff"
+        >
+          <tspan>{index}</tspan>
+        </text>
+      )}
     </svg>
   )
 }

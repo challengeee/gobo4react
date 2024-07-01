@@ -8,7 +8,7 @@ import {
   WikiWhiteStone,
 } from '../src/components/stones'
 import { useBoardDimensions } from '../src/hooks'
-import { RenderStoneProps } from '../src/hooks/useBoardState'
+import { RenderStoneProps } from '../src/types'
 
 interface StoneWithIntersectionProps {
   isTopMost?: boolean
@@ -20,6 +20,7 @@ interface StoneWithIntersectionProps {
   stoneType: 'black' | 'white' | 'wikiBlack' | 'wikiWhite'
   boardType: 'Chinese' | 'Japanese'
   opacity?: number
+  index?: number
 }
 
 export const StoneWithIntersection = ({
@@ -32,10 +33,13 @@ export const StoneWithIntersection = ({
   stoneType,
   boardType = 'Chinese',
   opacity = 100,
+  index,
 }: StoneWithIntersectionProps) => {
   const boardDimensions = useBoardDimensions(boardWidth, 19, boardType)
+  // TODO: Fix name to renderStoneProps
   const renderStoneprops: RenderStoneProps = {
     opacity,
+    index,
     ...boardDimensions,
   }
 
@@ -63,6 +67,9 @@ export const StoneWithIntersection = ({
       }}
     >
       <Intersection
+        row={0}
+        col={0}
+        boardDimensions={boardDimensions}
         isTopMost={isTopMost}
         isBottomMost={isBottomMost}
         isLeftMost={isLeftMost}
