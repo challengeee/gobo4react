@@ -10,7 +10,7 @@ export interface BoardDimensions {
   stoneRadius: number
 }
 
-export type StoneSymbolType = 'tri' | 'sqr' | 'o' | 'x' | 'star'
+export type StoneSymbolType = 'sqr' | 'o' | 'x'
 export type RenderStoneProps = BoardDimensions & {
   opacity?: number
   fontFamily?: string
