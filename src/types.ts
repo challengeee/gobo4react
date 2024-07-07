@@ -10,11 +10,15 @@ export interface BoardDimensions {
   stoneRadius: number
 }
 
+export type StoneSymbolType = 'tri' | 'sqr' | 'o' | 'x' | 'star'
 export type RenderStoneProps = BoardDimensions & {
   opacity?: number
-  index?: number
   fontFamily?: string
-} & Record<string, unknown>
+} & Record<string, unknown> &
+  // Can't use both index and symbol
+  (| { index?: number; symbol?: never }
+    | { index?: never; symbol?: StoneSymbolType }
+  )
 export type RenderStone = (props: RenderStoneProps) => React.ReactNode
 export type BoardState = (RenderStone | undefined)[][]
 

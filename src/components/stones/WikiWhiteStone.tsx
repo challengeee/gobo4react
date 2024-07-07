@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { RenderStone } from '../../types'
+import { StoneSymbol } from './StoneSymbol'
 
 // from https://en.m.wikipedia.org/wiki/File:Go_w1.svg
 export const WikiWhiteStone: RenderStone = ({
@@ -9,6 +10,7 @@ export const WikiWhiteStone: RenderStone = ({
   stoneRadius,
   opacity = 1,
   index,
+  symbol,
   fontFamily = 'Arial',
 }) => {
   const id = 'wiki-white-stone-gradient'
@@ -45,6 +47,7 @@ export const WikiWhiteStone: RenderStone = ({
           <tspan>{index}</tspan>
         </text>
       )}
+      {symbol && <StoneSymbol symbolType={symbol} symbolColor="#000" />}
     </svg>
   )
 }

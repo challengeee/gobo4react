@@ -8,7 +8,7 @@ import {
   WikiWhiteStone,
 } from '../src/components/stones'
 import { useBoardDimensions } from '../src/hooks'
-import { RenderStoneProps } from '../src/types'
+import { RenderStoneProps, StoneSymbolType } from '../src/types'
 
 interface StoneWithIntersectionProps {
   isTopMost?: boolean
@@ -21,6 +21,7 @@ interface StoneWithIntersectionProps {
   boardType: 'Chinese' | 'Japanese'
   opacity?: number
   index?: number
+  symbol?: StoneSymbolType
 }
 
 export const StoneWithIntersection = ({
@@ -34,13 +35,15 @@ export const StoneWithIntersection = ({
   boardType = 'Chinese',
   opacity = 100,
   index,
+  symbol,
 }: StoneWithIntersectionProps) => {
   const boardDimensions = useBoardDimensions(boardWidth, 19, boardType)
   const renderStoneProps: RenderStoneProps = {
     opacity,
-    index,
     ...boardDimensions,
   }
+  if (index !== undefined) renderStoneProps.index = index
+  if (symbol) renderStoneProps.symbol = symbol
 
   const Stone = (stoneType) => {
     switch (stoneType) {
