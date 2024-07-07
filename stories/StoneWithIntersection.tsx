@@ -8,7 +8,7 @@ import {
   WikiWhiteStone,
 } from '../src/components/stones'
 import { useBoardDimensions } from '../src/hooks'
-import { RenderStoneProps } from '../src/hooks/useBoardState'
+import { RenderStoneProps, StoneSymbolType } from '../src/types'
 
 interface StoneWithIntersectionProps {
   isTopMost?: boolean
@@ -20,6 +20,8 @@ interface StoneWithIntersectionProps {
   stoneType: 'black' | 'white' | 'wikiBlack' | 'wikiWhite'
   boardType: 'Chinese' | 'Japanese'
   opacity?: number
+  index?: number
+  symbol?: StoneSymbolType
 }
 
 export const StoneWithIntersection = ({
@@ -32,25 +34,29 @@ export const StoneWithIntersection = ({
   stoneType,
   boardType = 'Chinese',
   opacity = 100,
+  index,
+  symbol,
 }: StoneWithIntersectionProps) => {
   const boardDimensions = useBoardDimensions(boardWidth, 19, boardType)
-  const renderStoneprops: RenderStoneProps = {
+  const renderStoneProps: RenderStoneProps = {
     opacity,
     ...boardDimensions,
   }
+  if (index !== undefined) renderStoneProps.index = index
+  if (symbol) renderStoneProps.symbol = symbol
 
   const Stone = (stoneType) => {
     switch (stoneType) {
       case 'black':
-        return BlackStone(renderStoneprops)
+        return BlackStone(renderStoneProps)
       case 'white':
-        return WhiteStone(renderStoneprops)
+        return WhiteStone(renderStoneProps)
       case 'wikiBlack':
-        return WikiBlackStone(renderStoneprops)
+        return WikiBlackStone(renderStoneProps)
       case 'wikiWhite':
-        return WikiWhiteStone(renderStoneprops)
+        return WikiWhiteStone(renderStoneProps)
       default:
-        return BlackStone(renderStoneprops)
+        return BlackStone(renderStoneProps)
     }
   }
 
@@ -63,6 +69,9 @@ export const StoneWithIntersection = ({
       }}
     >
       <Intersection
+        row={0}
+        col={0}
+        boardDimensions={boardDimensions}
         isTopMost={isTopMost}
         isBottomMost={isBottomMost}
         isLeftMost={isLeftMost}

@@ -14,58 +14,43 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
+const defaultArgs = {
+  isTopMost: false,
+  isBottomMost: false,
+  isLeftMost: false,
+  isRightMost: false,
+  boardWidth: 2000,
+  isStarPoint: false,
+  boardType: 'Chinese' as 'Chinese' | 'Japanese',
+  opacity: 1,
+  index: undefined,
+  symbol: undefined,
+}
+
 export const Black: Story = {
   args: {
-    isTopMost: false,
-    isBottomMost: false,
-    isLeftMost: false,
-    isRightMost: false,
-    boardWidth: 2000,
-    isStarPoint: false,
+    ...defaultArgs,
     stoneType: 'black',
-    boardType: 'Chinese',
-    opacity: 1,
   },
 }
 
 export const White: Story = {
   args: {
-    isTopMost: false,
-    isBottomMost: false,
-    isLeftMost: false,
-    isRightMost: false,
-    boardWidth: 2000,
-    isStarPoint: false,
+    ...defaultArgs,
     stoneType: 'white',
-    boardType: 'Chinese',
-    opacity: 1,
   },
 }
 
 export const WikiBlack: Story = {
   args: {
-    isTopMost: false,
-    isBottomMost: false,
-    isLeftMost: false,
-    isRightMost: false,
-    boardWidth: 2000,
-    isStarPoint: false,
+    ...defaultArgs,
     stoneType: 'wikiBlack',
-    boardType: 'Chinese',
-    opacity: 1,
   },
 }
 
 export const WikiWhite: Story = {
   args: {
-    isTopMost: false,
-    isBottomMost: false,
-    isLeftMost: false,
-    isRightMost: false,
-    boardWidth: 2000,
-    isStarPoint: false,
+    ...defaultArgs,
     stoneType: 'wikiWhite',
-    boardType: 'Chinese',
-    opacity: 1,
   },
 }
