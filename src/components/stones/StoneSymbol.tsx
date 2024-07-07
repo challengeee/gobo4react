@@ -35,4 +35,27 @@ export const StoneSymbol = ({ symbolType, symbolColor }: StoneSymbolProps) => {
       />
     )
   }
+
+  if (symbolType === 'x') {
+    return (
+      <>
+        <line
+          x1="25%"
+          y1="25%"
+          x2="75%"
+          y2="75%"
+          stroke={symbolColor}
+          strokeWidth="4%"
+        />
+        <line
+          x1="75%"
+          y1="25%"
+          x2="25%"
+          y2="75%"
+          stroke={symbolColor}
+          strokeWidth="4%"
+        />
+      </>
+    )
+  }
 }
